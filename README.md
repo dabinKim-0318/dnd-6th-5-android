@@ -1,10 +1,5 @@
 # SpoonFeed
-### 맞닥뜨린 문제들을 고민하고 해결했던 과정
-
-| Problem | Blog Link |
-| ------ | ------ |
-| RecyclerView 중첩 스크롤 문제 | [https://url.kr/wjem9r] |
-
+<a href='https://play.google.com/store/apps/details?id=com.fork.spoonfeed'><img height="60px" src='https://play.google.com/intl/en/badges/images/generic/ko_badge_web_generic.png'/></a>
 
 # 📌 [목차](#index) <a name = "index"></a>
 
@@ -13,7 +8,13 @@
 - [결과물](#outputs)
 - [이 기술을 사용한 이유](#why)
 - [성과 및 회고](#retrospection)
-- [리팩토링](#update)
+- [프로젝트 이후 리팩토링](#update)
+
+### 맞닥뜨린 문제들을 고민하고 해결했던 과정
+| Problem | Blog Link |
+| ------ | ------ |
+| RecyclerView 중첩 스크롤 문제 | [https://url.kr/wjem9r] |
+| RecyclerView 중첩 스크롤 문제 | [https://url.kr/wjem9r] |
 
 
 <br>
@@ -82,11 +83,12 @@
 
 <br>
 
-# 6️⃣ 리팩토링 <a name = "update"></a>
+# 6️⃣ 프로젝트 이후 리팩토링 <a name = "update"></a>
 
 <details>
    <summary> Click 🙋‍♀️</summary>
 <br />
+
 
 ## RecyclerView 성능 최적화
 
