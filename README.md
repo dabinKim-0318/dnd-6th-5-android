@@ -1,108 +1,91 @@
 # SpoonFeed
-
-
-
-
-# 📝 [목차](#index) <a name = "index"></a>
-
-- [개요](#outline)
-- [아키텍처](#structure)
-- [결과물](#outputs)
-- [왜 이 기술을 사용했는가?](#why)
-- [맞닥뜨린 문제들을 고민하고 해결했던 과정](#problem)
-- [성과 및 회고](#retrospection)
-- [프로젝트 종료 이후 혼자서 진행한 리팩토링](#update)
-
-<br>
-
-# 📝 개요 <a name = "outline"></a>
-
-<details>
-   <summary> 본문 확인 (👈 Click)</summary>
-<br />
-취미 생활 및 자기계발 활동에 금전적으로 투자하는 사람들이 지속적으로 증가하고 있으며, 20 ~ 30대 대상 685명 설문조사 결과 사람들은 취미를 혼자보다 함께 즐기고 싶어할뿐만 아니라 전체의 75% 이상이
-처음만나는 사람과도 함께 취미를 즐기고 싶다고 답변했습니다. 또한, 유료로 취미생활 및 자기계발 분야 참여시 전체의 63%가 오프라인 방식을 선호하였습니다.
-저희는 취미 관련 오프라인 유료 클래스의 수요가 충분하다는 것을 파악하였고, 기존 업체들의 문제점들을 보완하여 오프라인 클래스 중개 플랫폼을 서비스하고자 합니다.
-
-</details>
-
-<br>
-
-# 📈 아키텍처  <a name = "structure"></a>
-
-<details>
-   <summary> 본문 확인 (👈 Click)</summary>
-<br />
-
-</details>
-
-<br>
-
-# 🎁 결과물  <a name = "outputs"></a>
-
-<details>
-   <summary> 본문 확인 (👈 Click)</summary>
-<br />
-
-</details>
-
-
-<br>
-
-# 💎 왜 이 기술을 사용했는가? <a name = "why"></a>
-
-<details>
-   <summary> 본문 확인 (👈 Click)</summary>
-<br />
-
-</details>
-
-
-<br>
-
-# 🏃‍♂️ 맞닥뜨린 문제들을 고민하고 해결했던 과정 <a name = "problem"></a>
-
-<details>
-   <summary> 본문 확인 (👈 Click)</summary>
-<br />
+### 맞닥뜨린 문제들을 고민하고 해결했던 과정
 
 | Problem | Blog Link |
 | ------ | ------ |
 | RecyclerView 중첩 스크롤 문제 | [https://url.kr/wjem9r] |
 
 
+# 📌 [목차](#index) <a name = "index"></a>
+
+- [개요](#outline)
+- [아키텍처](#structure)
+- [결과물](#outputs)
+- [이 기술을 사용한 이유](#why)
+- [성과 및 회고](#retrospection)
+- [리팩토링](#update)
+
+
+<br>
+
+# 1️⃣ 개요 <a name = "outline"></a>
+
+<details>
+   <summary> Click 🙋‍♀️</summary>
+<br />
+"사회초년생을 위한 사회생활
+가이드가 있었으면 좋겠다!"
+
+
+돈을 이제 갓 벌기 시작하면서 돈 관리를 해야하고,  
+독립을 하기 위해서 집도 알아봐야하고, 
+금융 관련된 정보는 왜 이렇게 많은지😂
+대체 어떤 정보가 맞지?
+
+스푼피드는,
+수많은 정책들 사이에서 혼란스러운 사회초년생들에게   
+맞춤 정책 정보를 쉽고 편리하게 제공할 수 없을까? 라는 생각에서 시작되었습니다.   
+
 </details>
 
 <br>
 
-# 📌 성과 및 회고 <a name = "retrospection"></a>
+# 2️⃣ 아키텍처  <a name = "structure"></a>
 
 <details>
-   <summary> 본문 확인 (👈 Click)</summary>
+   <summary> Click 🙋‍♀️</summary>
 <br />
 
 </details>
 
 <br>
 
-# 시연 영상
+# 3️⃣ 이 기술을 사용한 이유  <a name = "why"></a>
 
 <details>
-   <summary> 본문 확인 (👈 Click)</summary>
+   <summary> Click 🙋‍♀️</summary>
 <br />
 
+</details>
 
-[시연 영상](https://www.youtube.com/watch?v=BDnmRlhpV-M)  
-최종 발표 진행 중에 사용한 시연 영상입니다.
+
+<br>
+
+# 4️⃣ 결과물  <a name = "outputs"></a>
+
+<details>
+   <summary> Click 🙋‍♀️</summary>
+<br />
+
+</details>
+
+
+<br>
+
+# 5️⃣ 성과 및 회고 <a name = "retrospection"></a>
+
+<details>
+   <summary> Click 🙋‍♀️</summary>
+<br />
 
 </details>
 
 <br>
 
-# ✍️ 프로젝트 종료 이후 혼자서 진행한 리팩토링 <a name = "update"></a>
+# 6️⃣ 리팩토링 <a name = "update"></a>
 
 <details>
-   <summary> 본문 확인 (👈 Click)</summary>
+   <summary> Click 🙋‍♀️</summary>
 <br />
 
 ## RecyclerView 성능 최적화
