@@ -1,12 +1,6 @@
-# 내 맘대로 만들어보는 웹툰 플랫폼 툰툰해
+# SpoonFeed
 
-## Release Note
-| Version | Release Date | Changes | Detail |
-|--------|--------------|---------|--------|
-| v1.1.0  | 2021.03.29   | 더 다양한 공지사항 확인, 연락처 검색, MVVM 구조로 변환 / 버그 수정|[Blog](https://todaycode.tistory.com/37)
-| v1.1.1  | 2021.08.03   | 연락처 무한 로딩 버그, 앱 강제 종료 버그 수정 |[Blog](https://todaycode.tistory.com/69)
-| v1.2.0  | 2022.06.12   | 홈페이지 리뉴얼 대응, 스크롤 딜레이 제거, 리팩터링(Clean Architecture, Hilt 등) |[Blog](https://todaycode.tistory.com/169)
-| v1.2.1  | 2022.06.16   | 공지사항 검색, 건의하기 구현 / 푸시 알림 버그 수정 |
+
 
 
 # 📝 [목차](#index) <a name = "index"></a>
