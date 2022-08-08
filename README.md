@@ -5,9 +5,9 @@
 
 - [개요](#outline)
 - [아키텍처](#structure)
-- [결과물](#outputs)
 - [이 기술을 사용한 이유](#why)
-- [성과 및 회고](#retrospection)
+- [결과물](#outputs)
+- [회고 및 배운점](#learn)
 - [프로젝트 이후 리팩토링](#update)
 
 ### 맞닥뜨린 문제들을 고민하고 해결했던 과정
@@ -73,8 +73,7 @@
 
 <br>
 
-# 5️⃣ 성과 및 회고 <a name = "retrospection"></a>
-
+# 5️⃣ 회고 및 배운 점 <a name = "learn"></a>
 <details>
    <summary> Click 🙋‍♀️</summary>
 <br />
