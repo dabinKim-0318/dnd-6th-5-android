@@ -13,9 +13,9 @@
 ### 맞닥뜨린 문제들을 고민하고 해결했던 과정
 | Problem | Blog Link |
 | ------ | ------ |
-| RecyclerView 중첩 스크롤 문제 | [https://url.kr/wjem9r] |
-| RecyclerView 중첩 스크롤 문제 | [https://url.kr/wjem9r] |
-
+| NestedScrollView안의 RecyclerView ViewHolder 재활용 | [https://url.kr/wjem9r] |
+| Fragment를 add() 할때 하단 Fragment가 클릭되는 문제 | [https://url.kr/wjem9r] |
+| Fragment의 기본 생성자 호출 | [https://url.kr/wjem9r] |
 
 <br>
 
@@ -108,5 +108,8 @@
 | <img src="https://user-images.githubusercontent.com/84564695/183429903-7d5be5eb-f32b-4dce-9e79-ef5cc544d412.gif" width="200" height="380"/> |  <img src="https://user-images.githubusercontent.com/84564695/183429926-58c485b6-ac0a-4c85-b7a6-e159a24612c4.gif" width="200" height="380"/>
 
 - RecyclerView의 ViewHolder가 재활용되어 item 로딩 속도가 매우 빨라짐을 확인할 수 있었습니다.
+
+## LifeCycle의 상태를 알 수 있는 함수를 protected 함수로 만들어 생명주기 디버깅
+
 </details>
 
