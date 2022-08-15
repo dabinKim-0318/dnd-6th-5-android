@@ -211,6 +211,8 @@ DND를 하면서 저보다 실력있고 경험이 많은 팀원분과 함께, �
 
 - RecyclerView의 ViewHolder가 재활용되어 item 로딩 속도가 매우 빨라짐을 확인할 수 있었습니다.
 
+  
+  
 ## ✔ Log를 Timber라이브러리로 변경 
 - Release 상태에서 Log를 출력하고 싶지 않아 방법을 찾던 중,  Android의 Log 클래스 위에 구축된 로깅 유틸리티 클래스인 Timber 라이브러리를 알게되어 리팩토링하며 적용했습니다
 
@@ -230,6 +232,8 @@ private fun checkedSwitch() {
   }
 ```
 
+  
+  
 ## ✔ LifeCycle의 상태를 알 수 있는 함수를 protected 함수로 만들어 생명주기 디버깅
 - 생명주기에 관련된 버그가 발생할 때 로그를 남기기 위해 불필요한 오버라이딩이 필요한 경우가 있습니다   
 - 초기화 작업을 위해 만든 Base Class인 BaseActivity, BaseFragment에서 LifeCycleEvent을 위한 함수를 정의해 하위 클래스에서 이러한 보일러 플레이트 코드들을 줄일 수 있을 것이라고 생각했습니다.
@@ -277,6 +281,7 @@ class HomeFragment : BindingFragment<FragmentHomeBinding>(R.layout.fragment_home
 - Fragment 단에서도 ` LifeCycleEventLogger(javaClass.name).registerLogger(lifecycle)`를 추가해 LifeCycle 디버깅을 편리하게 할 수 있습니다
 
 
+  
 ## ✔ DiffUtil-> SimpleDiffUtil 사용으로 보일러 플레이트 코드 감소
 ```kotlin
     companion object {
