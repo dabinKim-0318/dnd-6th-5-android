@@ -63,6 +63,18 @@ upstream repository는 [이곳](https://github.com/dnd-side-project/dnd-6th-5-an
    <summary> Click 🙋‍♀️</summary>
 <br />
 
+| Architecture | Clean Architecture, MVVM |
+|:---|:---|
+| Design Pattern | Repository Pattern, Adapter Pattern,  Delegation Pattern, Observer Pattern |
+| Jetpack Components | Room, encryptedsharedpreferences, LiveData, Lifecycle, ViewModel, DataBinding, NavigationComponent |
+| Dependency Injection | Hilt |
+| Network | Retrofit, OkHttp |
+| Asynchronous Processing | Coroutine(+ Flow) |
+| Third Party Library | Coil, Naver Map, Kakao Map, Social Login, Firebase, Lottie, Timber, kotlinSerialization |
+| Strategy | Git Flow |
+| CI/CD | GitHub Action(KtLint, AAB, APK, Complie Check) |
+| Other Tool | Slack, Notion, Figma, Postman |
+
 </details>
 
 
