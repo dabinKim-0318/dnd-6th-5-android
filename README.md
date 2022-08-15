@@ -134,6 +134,11 @@ https://user-images.githubusercontent.com/84564695/180598819-65abf15b-cb4d-4b55-
 
 ### 마이페이지
 
+
+https://user-images.githubusercontent.com/84564695/184608951-3c1b241b-7309-47f0-a319-a1e1acfa6d84.mp4
+
+
+
 - 개인정보 변경
 - 관심정책 바로가기
 - 작성한 게시글 바로가기
