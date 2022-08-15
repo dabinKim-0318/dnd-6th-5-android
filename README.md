@@ -11,6 +11,9 @@
 - [프로젝트 이후 리팩토링](#update)
 
 ***
+<img src="https://user-images.githubusercontent.com/84564695/184614261-8c0f9526-d273-4690-8ad5-069255997e9b.png" width="400" height="380"/>
+
+
 
 본 README는 [김다빈](https://github.com/dabinKim-0318)이 프로젝트를 회고하며,      
 공부하고 배운점을 기록하기 위해 작성된 README입니다.    
@@ -23,8 +26,8 @@ upstream repository는 [이곳](https://github.com/dnd-side-project/dnd-6th-5-an
 <details>
    <summary> Click 🙋‍♀️</summary>
 <br />
-스푼피드는, 수많은 정책들 사이에서 혼란스러운 사회초년생들에게  
 
+스푼피드는, 수많은 정책들 사이에서 혼란스러운 사회초년생들에게  
 ***맞춤 정책 정보를 쉽고 편리하게 제공하는 서비스***입니다      
 
 현재 제공 되는 3가지 핵심 기능은 다음과 같습니다.
