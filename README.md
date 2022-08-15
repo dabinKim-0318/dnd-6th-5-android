@@ -3,7 +3,7 @@
 
 # 📌 [목차](#index) <a name = "index"></a>
 
-- [개요](#outline)
+- [아이디어/개요](#outline)
 - [아키텍처](#structure)
 - [사용한 기술에 대한 근거](#why)
 - [결과물](#outputs)
@@ -21,7 +21,7 @@ upstream repository는 [이곳](https://github.com/dnd-side-project/dnd-6th-5-an
   
 <br>
 
-# 1️⃣ 개요 <a name = "outline"></a>
+# 1️⃣ 아이디어/개요 <a name = "outline"></a>
 
 <details>
    <summary> Click 🙋‍♀️</summary>
