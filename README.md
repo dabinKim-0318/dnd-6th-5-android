@@ -63,17 +63,25 @@ upstream repository는 [이곳](https://github.com/dnd-side-project/dnd-6th-5-an
    <summary> Click 🙋‍♀️</summary>
 <br />
 
-| Architecture | Clean Architecture, MVVM |Clean Architecture, MVVM |
+- 각 Stack의 링크를 클릭하시면 공부하며 작성했던 포스팅으로 이동합니다!
+
+| Category | Stack  | Reason |
 |:---|:---|:---|
-| Design Pattern | Repository Pattern, Adapter Pattern,  Delegation Pattern, Observer Pattern |처음으로 MVVM 아키텍쳐를 도입한 프로젝트였습니다. 프로젝트 이후 안드로이드 공식문서의 [앱 아키텍쳐 가이드 ](https://developer.android.com/jetpack/guide?hl=ko)를 다시 공부하면서 제가 작성한 코드는 UI controller에서 데이터를 직접 가공하는 역할을 하는 코드들이 있다는 걸 알게됐습니다. 프로젝트를 하면서 ViewModel, LiveData 등의 라이브러리를 사용한다는 것에만 의의를 두고 개발한 것이 아닌가? 하는 반성을 하게 되었고, 제대로된 공부의 필요성을 느꼈습니다. 이후 [아키텍쳐에 대해 다시 공부](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-94xy7yo3)하며 각 Layer의 관심사를 분리에 초점을 맞추며 리팩토링하고 있습니다|
-| Jetpack Components | Room, encryptedsharedpreferences, LiveData, Lifecycle, ViewModel, DataBinding, NavigationComponent |
-| Dependency Injection | Hilt |
-| Network | Retrofit, OkHttp |
-| Asynchronous Processing | Coroutine(+ Flow) |
-| Third Party Library | Coil, Naver Map, Kakao Map, Social Login, Firebase, Lottie, Timber, kotlinSerialization |
-| Strategy | Git Flow |
-| CI/CD | GitHub Action(KtLint, AAB, APK, Complie Check) |
-| Other Tool | Slack, Notion, Figma, Postman |
+| Jetpack Components | [Room](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CSQLite) | 유저가 신고한 사용자의 id를 저장 후 컨텐츠를 필터링하기 위해 Room을 사용했습니다. 신고한 유저가 없을 경우 반드시 서버에서 데이터를 요청할 필요가 없기 때문에 local에 데이터를 저장해 사용하기로 결정했습니다. 신고 횟수에 제한이 없고 저장해야할 id의 수가 많아질 수 있다는 점을 고려해 sharedPreferences 대신 Room을 선택했습니다. |
+| |[LiveData](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CMVVM) | 최신 data가 생명주기에 따라 자동으로 업데이트 되도록하기 위해 LiveData를 사용했습니다  |
+| |[ViewModel](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CviewModel-%EC%83%9D%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EC%B0%B0) | 인스턴스가 소멸된 후 다시 onCreate 가 호출되며 인스턴스로 새로 생성되어도 데이터가 초기화되지 않도록 ViewModel을 사용했습니다. onSaveInstanceState()로 UI Data를 저장할 수도 있었겠지만, 대량의 UI Data를 복원하기에 적합하지 않다고 판단했습니다. 또한 서버, 데이터베이스에 접근하는 코드를 UI Controller와 분리하기 위해 ViewModel을 사용했습니다.
+| |[DataBinding](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CDataBinding) | findViewById 메서드에 비해, null safety, type safety 부분에서 장점이 있는 DataBinding을 사용했습니다. ViewBinding이 DataBinding보다 퍼포먼스 효율, 용량 측면에서 장점이 있지만 DataBinding은 ViewBinding역할을 할 수 있을 뿐더러, 레이아웃에서 데이터 연결 작업을 통한 역할 분리를 위해 DataBinding을 선택했습니다. |
+| Dependency Injection | [Hilt](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-HiltRepository%ED%8C%A8%ED%84%B4) | 클래스간 결합도를 낮추고 원활한 리팩토링을 위해 DI를 적용했습니다. ViewModel에 대한 의존성 주입을 구현하기 편리하고 각 컴포넌트의 라이프 사이클을 자동으로 관리해주는 Hilt를 DI Framework로 활용했습니다. Hilt가 Dagger2를 기반으로 만들어졌기 때문에 Hilt에 대한 이해를 높이기 위해 Dagger2도 함께 공부할 계획입니다 |
+| Network | Retrofit | - |
+|  |OkHttp | - |
+| Asynchronous Processing | Coroutine | - |
+| Third Party Library | Social Login |- |
+|  | Lottie |- |
+|  |Timber |- |
+|  |Gson |- |
+| Strategy | Git Flow |- |
+| CI/CD | GitHub Action|- |
+| Other Tool | Slack, Notion, Figma, Postman | 커뮤니케이션 |
 
 </details>
 
@@ -205,5 +213,6 @@ DND를 하면서 저보다 실력있고 경험이 많은 팀원분과 함께, �
 
 ## LifeCycle의 상태를 알 수 있는 함수를 protected 함수로 만들어 생명주기 디버깅
 
+## Timber 로 
 </details>
 
