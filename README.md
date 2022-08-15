@@ -5,7 +5,7 @@
 
 - [개요](#outline)
 - [아키텍처](#structure)
-- [이 기술을 사용한 이유](#why)
+- [사용한 기술에 대한 근거](#why)
 - [결과물](#outputs)
 - [회고 및 배운점](#learn)
 - [프로젝트 이후 리팩토링](#update)
@@ -57,7 +57,7 @@ upstream repository는 [이곳](https://github.com/dnd-side-project/dnd-6th-5-an
 
 <br>
 
-# 3️⃣ 이 기술을 사용한 이유  <a name = "why"></a>
+# 3️⃣ 사용한 기술에 대한 근거  <a name = "why"></a>
 
 <details>
    <summary> Click 🙋‍♀️</summary>
