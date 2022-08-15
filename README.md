@@ -63,9 +63,9 @@ upstream repository는 [이곳](https://github.com/dnd-side-project/dnd-6th-5-an
    <summary> Click 🙋‍♀️</summary>
 <br />
 
-| Architecture | Clean Architecture, MVVM |
-|:---|:---|
-| Design Pattern | Repository Pattern, Adapter Pattern,  Delegation Pattern, Observer Pattern |
+| Architecture | Clean Architecture, MVVM |Clean Architecture, MVVM |
+|:---|:---|:---|
+| Design Pattern | Repository Pattern, Adapter Pattern,  Delegation Pattern, Observer Pattern |처음으로 MVVM 아키텍쳐를 도입한 프로젝트였습니다. 프로젝트 이후 안드로이드 공식문서의 [앱 아키텍쳐 가이드 ](https://developer.android.com/jetpack/guide?hl=ko)를 다시 공부하면서 제가 작성한 코드는 UI controller에서 데이터를 직접 가공하는 역할을 하는 코드들이 있다는 걸 알게됐습니다. 프로젝트를 하면서 ViewModel, LiveData 등의 라이브러리를 사용한다는 것에만 의의를 두고 개발한 것이 아닌가? 하는 반성을 하게 되었고, 제대로된 공부의 필요성을 느꼈습니다. 이후 [아키텍쳐에 대해 다시 공부](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-94xy7yo3)하며 각 Layer의 관심사를 분리에 초점을 맞추며 리팩토링하고 있습니다|
 | Jetpack Components | Room, encryptedsharedpreferences, LiveData, Lifecycle, ViewModel, DataBinding, NavigationComponent |
 | Dependency Injection | Hilt |
 | Network | Retrofit, OkHttp |
