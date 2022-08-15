@@ -44,6 +44,15 @@ upstream repository는 [이곳](https://github.com/dnd-side-project/dnd-6th-5-an
    <summary> Click 🙋‍♀️</summary>
 <br />
 
+  <img width="300" src = "https://user-images.githubusercontent.com/84564695/184577351-59081ffd-2860-47b7-9da2-f093c633d71a.JPG" />
+  <img width="400" src = "https://user-images.githubusercontent.com/84564695/184577995-8802595a-c1b9-40ec-8d6f-693666478756.png" />   
+
+
+- 모바일 앱 사용자 환경을 올바르게 제공하기 위해 안드로이드 권장 아키텍쳐를 참고    
+- data / domain / presentation 로 layer를 나누고 패키징을 통해 관심사 분리    
+- Repository Pattern 을 사용해 DataSource 캡슐화
+- ViewModel, LiveData 등의 Jetpack Component를 활용해 UI Controller의 과도한 책임을 막고 역할 분리
+
 </details>
 
 <br>
