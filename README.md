@@ -77,7 +77,11 @@
 <details>
    <summary> Click 🙋‍♀️</summary>
 <br />
+### Github Action Build Check CI 작성
 
+반복되는 병합 과정에서 기존 Application을 손상시키지 않도록 확인하기 위해 Github Action을 이용했습니다.
+
+3주의 기간이 주어진 프로젝트였기 때문에 Develop Branch에 급하게 들어오는 병합 내용에 다양한 Build 에러가 많았습니다. 이를 통한 손상을 줄이고자 Github Action으로 Build 과정을 검사하고 그 결과를 Slack API 를 이용해 공지하였습니다. 병합 이후 발생한 손상을 즉시 해결 함으로 추후 손상을 해결하는 시간을 줄이고 개발에 집중할 수 있었습니다.
 </details>
 
 <br>
