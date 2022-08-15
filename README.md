@@ -191,7 +191,7 @@ DND를 하면서 저보다 실력있고 경험이 많은 팀원분과 함께, �
 <br />
 
 
-## RecyclerView 성능 최적화
+## NestedScrollView로 감싼 RecyclerView의 ViewHolder 재활용 문제 해결
 
 - NestedScrollView에 RecyclerView를 중첩해서 사용할 경우  ViewHolder가 전혀 재활용되지 않는다는 것을 알게 되었고, 
 [해당 문제의 원인과 해결 방법에대해 고민](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EA%B3%B5%EC%8B%9D%EB%AC%B8%EC%84%9C-%ED%8C%8C%ED%97%A4%EC%B9%98%EA%B8%B0-ScrollView-NestedScrollView%EC%9D%98-%EB%AA%A8%EB%93%A0-%EA%B2%83)하였습니다. 
@@ -213,6 +213,9 @@ DND를 하면서 저보다 실력있고 경험이 많은 팀원분과 함께, �
 
 ## LifeCycle의 상태를 알 수 있는 함수를 protected 함수로 만들어 생명주기 디버깅
 
-## Timber 로 
+## Log를 Timber라이브러리로 변경 
+  
+## DiffUtil-> SimpleDiffUtil 사용으로 보일러 플레이트 코드 감소
+  
 </details>
 
