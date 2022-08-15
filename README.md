@@ -72,16 +72,16 @@ upstream repository는 [이곳](https://github.com/dnd-side-project/dnd-6th-5-an
 | |[ViewModel](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CviewModel-%EC%83%9D%EC%84%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EC%B0%B0) | 인스턴스가 소멸된 후 다시 onCreate 가 호출되며 인스턴스로 새로 생성되어도 데이터가 초기화되지 않도록 ViewModel을 사용했습니다. onSaveInstanceState()로 UI Data를 저장할 수도 있었겠지만, 대량의 UI Data를 복원하기에 적합하지 않다고 판단했습니다. 또한 서버, 데이터베이스에 접근하는 코드를 UI Controller와 분리하기 위해 ViewModel을 사용했습니다.
 | |[DataBinding](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CDataBinding) | findViewById 메서드에 비해, null safety, type safety 부분에서 장점이 있는 DataBinding을 사용했습니다. ViewBinding이 DataBinding보다 퍼포먼스 효율, 용량 측면에서 장점이 있지만 DataBinding은 ViewBinding역할을 할 수 있을 뿐더러, 레이아웃에서 데이터 연결 작업을 통한 역할 분리를 위해 DataBinding을 선택했습니다. |
 | Dependency Injection | [Hilt](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-HiltRepository%ED%8C%A8%ED%84%B4) | 클래스간 결합도를 낮추고 원활한 리팩토링을 위해 DI를 적용했습니다. ViewModel에 대한 의존성 주입을 구현하기 편리하고 각 컴포넌트의 라이프 사이클을 자동으로 관리해주는 Hilt를 DI Framework로 활용했습니다. Hilt가 Dagger2를 기반으로 만들어졌기 때문에 Hilt에 대한 이해를 높이기 위해 Dagger2도 함께 공부할 계획입니다 |
-| Network | Retrofit | - |
-|  |OkHttp | - |
-| Asynchronous Processing | Coroutine | - |
-| Third Party Library | Social Login |- |
-|  | Lottie |- |
-|  |Timber |- |
-|  |Gson |- |
-| Strategy | Git Flow |- |
-| CI/CD | GitHub Action|- |
-| Other Tool | Slack, Notion, Figma, Postman | 커뮤니케이션 |
+| Network | Retrofit2 | AsyncTask로 구현된 통신 방식이나 Volley 라이브러리에 비해 응답 속도가 빠른 Retrofit2를 사용했습니다. |
+|  |OkHttp3 | - |
+| Asynchronous Processing | [Coroutine](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EC%BD%94%EB%A3%A8%ED%8B%B4-%EC%8B%A4%EC%8A%B5) | api요청 시 callback을 사용하지 않고 비동기 처리를 하기 위해 Coroutine을 사용했습니다.  직관적인 함수 사용을 통해 코드의 가독성도 높일 수 있었습니다 |
+| Third Party Library | Social Login | 사용자의 회원가입 과정의 번거로움을 피하기 위해 네이버, 카카오 SDK를 사용해 소셜 로그인을 구현했습니다. |
+|  | Lottie | 스플래시 화면에서 애니메이션 처리가 필요했고, 고품질 애니메이션을 처리할 때 발생할 수 있는 OOM을 피하기 위해 애니메이션 라이브러리를 사용하기로 결정했습니다. 그중 백터 기반이라 용량이 적고 적용이 간단한 Lottie라이브러리를 활용했습니다. |
+|  |Timber | 릴리즈 버전에서 로그를 출력하지 않고, 태그를 별도로 입력하지 않아도 되는 Timber을 사용해 Log를 남겼습니다 |
+|  |Gson | Json형식인 응답 데이터를 java로 파싱하기 위해 Gson라이브러리를 사용했습니다.  |
+| Strategy | Git Flow |   </li> <li><a href="https://github.com/dnd-side-project/dnd-6th-5-android/wiki/%EB%B8%8C%EB%9E%9C%EC%B9%98-%EC%A0%84%EB%9E%B5">브랜치 전략</a></li> <li><a href="https://github.com/dnd-side-project/dnd-6th-5-android/wiki/%EC%BD%94%EB%93%9C-%EC%BB%A8%EB%B2%A4%EC%85%98">코드 컨벤션</a></li>  <li><a href="https://github.com/dnd-side-project/dnd-6th-5-android/wiki/%EC%BB%A4%EB%B0%8B-%EC%BB%A8%EB%B2%A4%EC%85%98">커밋 컨벤션</a> |
+| CI/CD | GitHub Action| Github Action으로 Build 과정을 검사했습니다. develop 브랜치로 병합 이후 발생한 손상을 즉시 해결 함으로 추후 손상을 해결하는 시간을 줄였습니다. |
+| Other Tool | Slack, Notion, Figma, Postman | 팀원간 이슈 알림을 위해 Slack을 사용했고, 작업 진행상황공유와 디자인 작업, 백엔드 파트원과의 커뮤니케이션 등을 위해 해당 Tool들을 사용했습니다 |
 
 </details>
 
