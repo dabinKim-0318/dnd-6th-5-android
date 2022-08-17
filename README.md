@@ -284,5 +284,23 @@ class MyLikePolicyAdapter(
 ```
 - 위와 같이 SimpleDiffUtil() 인스턴스를 바로 ListAdapter의 인자로 전달해 사용합니다.
 
+  <br/><br/>  
+
+## ✔  RecyclerView ViewHolder inner class 변경
+  <br/><br/>  
+## ✔  Listener 설정을 ViewHolder에서 초기화
+  <br/><br/>  
+## ✔  UI Controller에서 UI State를 조작하는 코드 수정
+  <br/><br/>  
+## ✔  경계 조건 캡슐화
+  <br/><br/>  
+
+## ✔  Gson-> Moshi 변경
+- 다른 프로젝트에서 Moshi를 사용해보며 Fails Gracefully한 Moshi의 장점이 크게 다가왔고( JSON 문서를 읽는 중 오류가 발생하거나 형식이 잘못된 경우 java.io.IOException을 발생시키고, 타입 포맷과 일치하지 않으면 JsonDataException이 발생) Moshi의 부가적인 기능 활용을 위해 라이브러리를 변경했습니다.
+- 현재 프로젝트에서는 Gson과 Moshi를 함께 사용하고 있습니다.
+  <br/><br/>  
+
+  <br/><br/>  
+
 </details>
 
