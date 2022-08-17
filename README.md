@@ -287,9 +287,23 @@ class MyLikePolicyAdapter(
   <br/><br/>  
 
 ## ✔  RecyclerView ViewHolder inner class 변경
+```kotlin
+  inner class MyLikePolicyHomeViewHolder(private val binding: ItemInterastedPolicyBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun onBind(data: ResponseUserLikePolicyData.Data.Policy) {
+           ...
+        }
+```
+- 메모리 누수에 대해 공부하던 중 inner class 사용 시 불필요한 outer class 참조로 메모리 누수가 발생할 수 있다는 것을 알게되었습니다
+
+```kotlin
+   class MyLikePolicyHomeViewHolder(private val binding: ItemInterastedPolicyBinding) : RecyclerView.ViewHolder(binding.root) {
+        fun onBind(data: ResponseUserLikePolicyData.Data.Policy) {
+           ...
+        }
+```
+- RecyclerView의 ViewHolder를 inner class로 정의하고 있었는데 반드시 inner class로 사용할 이유가 없었기 때문에 nested class로 변경했습니다
   <br/><br/>  
-## ✔  Listener 설정을 ViewHolder에서 초기화
-  <br/><br/>  
+
 ## ✔  UI Controller에서 UI State를 조작하는 코드 수정
   <br/><br/>  
 ## ✔  경계 조건 캡슐화
@@ -299,7 +313,89 @@ class MyLikePolicyAdapter(
 - 다른 프로젝트에서 Moshi를 사용해보며 Fails Gracefully한 Moshi의 장점이 크게 다가왔고( JSON 문서를 읽는 중 오류가 발생하거나 형식이 잘못된 경우 java.io.IOException을 발생시키고, 타입 포맷과 일치하지 않으면 JsonDataException이 발생) Moshi의 부가적인 기능 활용을 위해 라이브러리를 변경했습니다.
 - 현재 프로젝트에서는 Gson과 Moshi를 함께 사용하고 있습니다.
   <br/><br/>  
-## ✔  ENUM-> Typedef 어노테이션 변경
+## ✔  intent를 보내는 보일러 플레이트 코드 개선
+```kotlin
+private fun initClick() {
+        with(binding) {
+            ivHomeAllBackground.setOnClickListener {
+                val intent = Intent(requireContext(), PolicyListActivity::class.java).let {
+                    it.putExtra(CATEGORY, ALL)
+                }
+                startActivity(intent)
+            }
+            ivHomeDwellingBackground.setOnClickListener {
+                val intent = Intent(requireContext(), PolicyListActivity::class.java).let {
+                    it.putExtra(CATEGORY, DWELLING)
+                }
+                startActivity(intent)
+            }
+            ivHomeFinanceBackground.setOnClickListener {
+                val intent = Intent(requireContext(), PolicyListActivity::class.java).let {
+                    it.putExtra(CATEGORY, FINANCE)
+                }
+                startActivity(intent)
+            }
+          ...
+        }
+    }
+
+```
+- Home 화면에서 전체/주거/금융 카테고리 클릭시 정책 리스트 화면으로 이동되는 플로우에서, intent를 보내는 보일러 플레이트 코드를 개선할 수 있겠다는 생각이 들었습니다
+  <br/><br/>  
+```kotlin
+//PolicyListActivity
+class PolicyListActivity :
+    BaseViewUtil.BaseAppCompatActivity<ActivityPolicyListBinding>(R.layout.activity_policy_list) {
+    
+      ...
+    companion object {
+        const val CATEGORY = "CATEGORY"
+
+        fun start(context: Context, category: String) {
+            val intent = Intent(context, PolicyListActivity::class.java).putExtra(CATEGORY, category)
+            context.startActivity(intent)
+        }
+      }
+    }
+    
+//
+private fun initClick() {
+        with(binding) {
+            ivHomeAllBackground.setOnClickListener { PolicyListActivity.start(requireContext(), ALL) }
+            ivHomeDwellingBackground.setOnClickListener { PolicyListActivity.start(requireContext(), DWELLING) }
+            ivHomeFinanceBackground.setOnClickListener { PolicyListActivity.start(requireContext(), FINANCE) }
+   }
+```
+- intent를 받는 PolicyListActivity 에서 companion oboject 블럭 안에 `start(context: Context, category: String)` 메서드를 선언했습니다
+- 외부에서 `start(context: Context, category: String)` 메서드를 여러번 호출해야 하고 인스턴스 생성 없이 사용하기 위해 companion oboject 블럭 안에서 사용했습니다.
+- start라는 메서드 네이밍을 통해 클릭 이벤트 발생 시 PolicyListActivity로 이동된다는 것을 직관적으로 알 수 있도록 코드를 작성했습니다.
+  <br/><br/>  
+## ✔  inflater 중복 생성 방지
+```kotlin
+   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyLikePolicyAdapter.MyLikePolicyHomeViewHolder {
+        val binding = ItemInterastedPolicyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+      
+        return MyLikePolicyHomeViewHolder(binding)
+    }
+
+```
+- RecyclerView를 사용하던 중 ViewHolder가 Create될 때 마다 inflater가 매번 생성되는 것을 개선할 수 있겠다고 생각했습니다
+
+```kotlin
+ private lateinit var inflater: LayoutInflater //전역 변수로 선언
+
+   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyLikePolicyAdapter.MyLikePolicyHomeViewHolder {
+          if (!::inflater.isInitialized) //변수를 객체로 엑세스하여 객체에 대한 속성 참조
+            inflater = LayoutInflater.from(parent.context)
+            
+        val binding = ItemInterastedPolicyBinding.inflate(inflater, parent, false)
+      
+        return MyLikePolicyHomeViewHolder(binding)
+    }
+
+```
+- 코틀린 표준 라이브러리에서 제공하는 함수인 isInitialized을 사용해 지연 초기화 속성이 초기화되었는지 검사했습니다.
+- inflater의 할당 여부를 확인하고, 중복 생성을 방지했습니다.
 
   <br/><br/>  
 
