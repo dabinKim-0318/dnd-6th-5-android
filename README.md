@@ -15,7 +15,7 @@
 
 
 
-본 README는 [김다빈](https://github.com/dabinKim-0318)이 프로젝트를 회고하며,      
+본 README는 [dabinKim-0318(김다빈)](https://github.com/dabinKim-0318)이 프로젝트를 회고하며,      
 공부하고 배운점을 기록하기 위해 작성된 README입니다.    
 upstream repository는 [이곳](https://github.com/dnd-side-project/dnd-6th-5-android)을 참고해주세요😊      
   
@@ -305,14 +305,54 @@ class MyLikePolicyAdapter(
   <br/><br/>  
 
 ## ✔  UI Controller에서 UI State를 조작하는 코드 수정
+```kotlin
+     private fun setObserver() {
+        communityPostViewModel.postDetailData.observe(this) {
+            setCategoryBackground(it.category)
+            if (it.author == communityPostViewModel.getUserData()?.nickname) setPostEditWriterClickListener()
+            else setPostEditUserClickListener()
+        }
+     ...
+  }
+```
+  - 게시글의 작성자 닉네임과와 유저의 닉네임 여부 일치로 게시글 더보기 버튼을 클릭했을 때 이벤트 로직 분기 처리가 필요했습니다
+  - 안드로이드 권장 아키텍쳐를 다시 공부한 이후, 해당 코드는 UI Controller가 Data를 직접 가공하고 있어 "관심사 분리"에서 벗어난 코드임을 알게됐습니다
+```kotlin
+      private fun setObserver() {
+       communityPostViewModel.isWriter.observe(this) { writer ->
+            if (writer) setPostEditWriterClickListener()
+            else setPostEditUserClickListener()
+        }
+```
+  - CommunityPostViewModel에서 게시글 작성자 여부를 Boolean형 데이터로 저장하는 LiveData를 선언한 후, 작성자 여부 분기처리 비즈니스 로직을 작성했습니다
+  - UI Controller인 CommunityPostActivity에서는 isWriter 의 true/false에 따라 클릭 이벤트를 수동적으로 업데이트하는 역할만을 담당합니다.
+  
   <br/><br/>  
+  
 ## ✔  경계 조건 캡슐화
+  ```kotlin
+     private fun setRegisterForActivityResult() {
+        registerForActivity =
+            registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { activityResult ->
+              
+              ...
+  
+              //변경전
+              if (activityResult.data?.getStringExtra(CommunityPostInfoUpdateActivity.INFO_NOT_UPDATE_RESULT_KEY) == null) {
+                   ...
+                } else Toast.makeText(this, "상세정보를 확인해주세요", Toast.LENGTH_SHORT).show()
+  
+             //변경후
+              if (checkFromInfo(activityResult)) {
+                   ...
+                } else Toast.makeText(this, "상세정보를 확인해주세요", Toast.LENGTH_SHORT).show()
+            }
+    }
+  ```
+-  if문의 조건으로 사용되는 코드가 복잡한 경우 함수로 만들어 가독성 좋게 수정하였습니다.
+  
   <br/><br/>  
 
-## ✔  Gson-> Moshi 변경
-- 다른 프로젝트에서 Moshi를 사용해보며 Fails Gracefully한 Moshi의 장점이 크게 다가왔고( JSON 문서를 읽는 중 오류가 발생하거나 형식이 잘못된 경우 java.io.IOException을 발생시키고, 타입 포맷과 일치하지 않으면 JsonDataException이 발생) Moshi의 부가적인 기능 활용을 위해 라이브러리를 변경했습니다.
-- 현재 프로젝트에서는 Gson과 Moshi를 함께 사용하고 있습니다.
-  <br/><br/>  
 ## ✔  intent를 보내는 보일러 플레이트 코드 개선
 ```kotlin
 private fun initClick() {
@@ -358,7 +398,7 @@ class PolicyListActivity :
       }
     }
     
-//
+//HomeFragment
 private fun initClick() {
         with(binding) {
             ivHomeAllBackground.setOnClickListener { PolicyListActivity.start(requireContext(), ALL) }
