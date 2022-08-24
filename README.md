@@ -3,6 +3,7 @@
 
 # 📌 [목차](#index) <a name = "index"></a>
 
+- [프로젝트 동기](#reason)
 - [아이디어/개요](#outline)
 - [아키텍처](#structure)
 - [사용한 기술에 대한 근거](#why)
@@ -19,13 +20,30 @@
 공부하고 배운점을 기록하기 위해 작성된 README입니다.    
 upstream repository는 [이곳](https://github.com/dnd-side-project/dnd-6th-5-android)을 참고해주세요😊      
   
+  
+# 0️⃣ 프로젝트 동기 <a name = "reason"></a>
+
+<details>
+   <summary> Click 🙋‍♀️</summary>
+<br />
+
+
+
+</details>
+
 <br>
+
 
 # 1️⃣ 아이디어/개요 <a name = "outline"></a>
 
 <details>
    <summary> Click 🙋‍♀️</summary>
 <br />
+
+| 디자인| API문서 | 백로그 |
+| ------ | ------ | ------ |
+| [디자인](https://www.figma.com/file/p7g2MUXTPQI099H5AhXclZ/DnD?node-id=1030%3A12107) | [API문서](https://www.notion.so/API-c373cb49545947949d766e4724e52965) | [백로그](https://www.notion.so/60d9b1efc7d246b5842e1798ff1ed458?v=970b9be635df4dd985141c846728209e) |
+
 
 스푼피드는, 수많은 정책들 사이에서 혼란스러운 사회초년생들에게  
 ***맞춤 정책 정보를 쉽고 편리하게 제공하는 서비스***입니다      
