@@ -40,8 +40,7 @@ upstream repository는 [이곳](https://github.com/dnd-side-project/dnd-6th-5-an
    <summary> Click 🙋‍♀️</summary>
 <br />
 
-| 디자인| API문서 | 백로그 |
-| ------ | ------ | ------ |
+
 | [디자인](https://www.figma.com/file/p7g2MUXTPQI099H5AhXclZ/DnD?node-id=1030%3A12107) | [API문서](https://www.notion.so/API-c373cb49545947949d766e4724e52965) | [백로그](https://www.notion.so/60d9b1efc7d246b5842e1798ff1ed458?v=970b9be635df4dd985141c846728209e) |
 
 
