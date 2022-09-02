@@ -1,7 +1,33 @@
-# SpoonFeed
-<a href='https://play.google.com/store/apps/details?id=com.fork.spoonfeed'><img height="60px" src='https://play.google.com/intl/en/badges/images/generic/ko_badge_web_generic.png'/></a>
 
-# 📌 [목차](#index) <a name = "index"></a>
+<br />
+<p align='center'>
+🥄나에게 딱 맞는 맞춤 정책찾기🥄
+ </p>
+
+ 
+<p align='center'>
+<img width="800" alt="01" src="https://user-images.githubusercontent.com/84564695/180598164-f600814c-1820-43b1-afc8-6062b51060fb.png">
+ </p>
+ 
+ <p align='center'>
+ <a href='https://play.google.com/store/apps/details?id=com.fork.spoonfeed'><img height="60px" src='https://play.google.com/intl/en/badges/images/generic/ko_badge_web_generic.png'/></a>
+ </p>
+ 
+<p align='center'>
+    <img src="https://img.shields.io/badge/kotlin-v1.6.21-blue?logo=kotlin"/>
+    <img src="https://img.shields.io/badge/Retrofit2-v2.9.0-green?logo=Retrofit2"/>
+    <img src="https://img.shields.io/badge/Hilt-v2.40.5-yellow?logo=Hilt"/>
+ </p>
+<p align='center'>
+    <img src="https://img.shields.io/badge/Moshi-v1.12.0-brightgreen?logo=Moshi"/>
+    <img src="https://img.shields.io/badge/Lifecycle-v2.4.1-blue?logo=Lifecycle"/>
+    <img src="https://img.shields.io/badge/OkHttp-v4.9.2-orange?logo=OkHttp"/>
+    <img src="https://img.shields.io/badge/Timber-v5.0.1-blue?logo=Ttimber">
+</p>
+
+<br>
+
+# 📌목차
 
 - [프로젝트 동기](#reason)
 - [아이디어/개요](#outline)
@@ -11,15 +37,32 @@
 - [회고 및 배운점](#learn)
 - [프로젝트 이후 리팩토링](#update)
 
+
+# 📌Documents
+- [API문서](https://www.spoonfeed.kr/api-docs/)  
+- [IA](https://www.figma.com/file/p7g2MUXTPQI099H5AhXclZ/DnD?node-id=268%3A431)
+- [디자인](https://www.figma.com/file/p7g2MUXTPQI099H5AhXclZ/DnD?node-id=1030%3A12107)  
+- [기획서](https://www.notion.so/21b083c5d23c41debb77ad698aaa7e65)
+- [백로그](https://www.notion.so/b55065df99d24419a29169087f9d4807)
+
+
+
+# 📌함께하는 사람들
+
+| [김다빈](https://github.com/dabinKim-0318)                | [임도연](https://github.com/dddooo9)                |          
+| ------------------------------------------------------- | -------------------------------------------------------- | 
+| <img src="https://user-images.githubusercontent.com/84564695/186730603-a0a5a1c7-bed1-43cc-8af9-f5fdce94b8f6.jpg" width="100"> | <img src="https://user-images.githubusercontent.com/64943924/150619859-8b5f6706-3627-4b7c-a1b8-7b06a633af64.png" width="100"> | 
+
+  <br>
+  
 ***
-<img src="https://user-images.githubusercontent.com/84564695/184614261-8c0f9526-d273-4690-8ad5-069255997e9b.png" width="400" height="380"/>
-
-
-
+  
 본 README는 [dabinKim-0318(김다빈)](https://github.com/dabinKim-0318)이 프로젝트를 회고하며,      
 공부하고 배운점을 기록하기 위해 작성된 README입니다.    
 upstream repository는 [이곳](https://github.com/dnd-side-project/dnd-6th-5-android)을 참고해주세요😊      
   
+  
+  <br>
   
 # 0️⃣ 프로젝트 동기 <a name = "reason"></a>
 
@@ -27,7 +70,7 @@ upstream repository는 [이곳](https://github.com/dnd-side-project/dnd-6th-5-an
    <summary> Click 🙋‍♀️</summary>
 <br />
 
-
+첫 번째 대외활동이 끝난 후 팀프로젝트에 대한 아쉬움과 재미를 느껴 현업 개발자, 디자이너분들과 함께 하나의 프로젝트를 완성해볼 수 있는 DND에서 안드로이드 개발자로 참여했습니다. 8주간 기획부터 개발, 릴리즈까지 경험해볼 수 있는 소중한 시간이었습니다.
 
 </details>
 
@@ -41,9 +84,11 @@ upstream repository는 [이곳](https://github.com/dnd-side-project/dnd-6th-5-an
 <br />
 
 
-| [디자인](https://www.figma.com/file/p7g2MUXTPQI099H5AhXclZ/DnD?node-id=1030%3A12107) | [API문서](https://www.notion.so/API-c373cb49545947949d766e4724e52965) | [백로그](https://www.notion.so/60d9b1efc7d246b5842e1798ff1ed458?v=970b9be635df4dd985141c846728209e) |
 
+  <img width="800" src = "https://user-images.githubusercontent.com/84564695/188052319-cb84d408-84d7-4c52-bf15-d4162fa9080a.png" />   
 
+<br><br />
+ 
 스푼피드는, 수많은 정책들 사이에서 혼란스러운 사회초년생들에게  
 ***맞춤 정책 정보를 쉽고 편리하게 제공하는 서비스***입니다      
 
