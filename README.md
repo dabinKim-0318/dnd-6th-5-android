@@ -51,7 +51,7 @@
 
 | [김다빈](https://github.com/dabinKim-0318)                | [임도연](https://github.com/dddooo9)                |          
 | ------------------------------------------------------- | -------------------------------------------------------- | 
-| <img src="https://user-images.githubusercontent.com/84564695/186730603-a0a5a1c7-bed1-43cc-8af9-f5fdce94b8f6.jpg" width="100"> | <img src="https://user-images.githubusercontent.com/64943924/150619859-8b5f6706-3627-4b7c-a1b8-7b06a633af64.png" width="100"> | 
+| <img src="https://user-images.githubusercontent.com/84564695/190450439-e798897d-8049-421e-b54c-919a582a6c5d.png" width="100"> | <img src="https://user-images.githubusercontent.com/64943924/150619859-8b5f6706-3627-4b7c-a1b8-7b06a633af64.png" width="100"> | 
 
   <br>
   
