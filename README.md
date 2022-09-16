@@ -303,51 +303,6 @@ private fun checkedSwitch() {
 ```
   <br/><br/>  
 
-
-## ✔ DiffUtil-> SimpleDiffUtil 사용으로 보일러 플레이트 코드 감소
-```kotlin
-    companion object {
-        val diffUtil = object : DiffUtil.ItemCallback<ResponseUserLikePolicyData.Data.Policy>() {
-            override fun areContentsTheSame(oldItem: ResponseUserLikePolicyData.Data.Policy, newItem: ResponseUserLikePolicyData.Data.Policy) =
-                oldItem == newItem
-
-            override fun areItemsTheSame(oldItem: ResponseUserLikePolicyData.Data.Policy, newItem: ResponseUserLikePolicyData.Data.Policy) =
-                oldItem.policyId == newItem.policyId
-        }
-
-        const val DEFAULT_COUNT = 3
-    }
-```
-- ListAdapter 사용 시 DiffUtil.Callback을 위한 클래스를 다음과 같이 구현했었습니다.
-- 해당 클래스에서만 사용하는 구현체이기 때문에 싱글톤으로 사용했습니다
-
-```kotlin
-class SimpleDiffUtil<T : Any> : DiffUtil.ItemCallback<T>() {
-    override fun areItemsTheSame(oldItem: T, newItem: T): Boolean {
-        return oldItem == newItem
-    }
-
-    @SuppressLint("DiffUtilEquals")
-    override fun areContentsTheSame(oldItem: T, newItem: T): Boolean {
-        return oldItem == newItem
-    }
-}
-```
-- DiffUtil.Callback을 위한 클래스는 모든 RecyclerView에서 정의하고 사용해야 했기에 기본 구현체를 만들어 사용하는게 좋겠다고 생각했습니다
-- DiffUtil.ItemCallback의 하위 클래스를 제네릭 타입으로 선언하고 인스턴스를 바로 ListAdapter의 인자로 넘기도록 하여 보일러 플레이트 코드를 감소시켰습니다
-
-```kotlin
-class MyLikePolicyAdapter(
-    private val clickListener: (ResponseUserLikePolicyData.Data.Policy) -> Unit
-) : ListAdapter<ResponseUserLikePolicyData.Data.Policy, MyLikePolicyAdapter.MyLikePolicyHomeViewHolder>(SimpleDiffUtil()) {
-
-   ...
-
-```
-- 위와 같이 SimpleDiffUtil() 인스턴스를 바로 ListAdapter의 인자로 전달해 사용합니다.
-
-  <br/><br/>  
-
 ## ✔  RecyclerView ViewHolder inner class 변경
 ```kotlin
   inner class MyLikePolicyHomeViewHolder(private val binding: ItemInterastedPolicyBinding) : RecyclerView.ViewHolder(binding.root) {
