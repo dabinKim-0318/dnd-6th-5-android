@@ -43,7 +43,7 @@
 - [IA](https://www.figma.com/file/p7g2MUXTPQI099H5AhXclZ/DnD?node-id=268%3A431)
 - [디자인](https://www.figma.com/file/p7g2MUXTPQI099H5AhXclZ/DnD?node-id=1030%3A12107)  
 - [기획서](https://www.notion.so/21b083c5d23c41debb77ad698aaa7e65)
-- [백로그](https://www.notion.so/b55065df99d24419a29169087f9d4807)
+- [백로그](https://www.notion.so/60d9b1efc7d246b5842e1798ff1ed458?v=970b9be635df4dd985141c846728209e)
 
 
 
