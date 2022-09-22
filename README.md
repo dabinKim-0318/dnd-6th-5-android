@@ -56,8 +56,10 @@
   <br>
   
 ***
-  
-본 README는 [dabinKim-0318(김다빈)](https://github.com/dabinKim-0318)이 프로젝트를 회고하며,      
+
+<br />
+
+✔ 본 README는 [dabinKim-0318(김다빈)](https://github.com/dabinKim-0318)이 프로젝트를 회고하며,      
 공부하고 배운점을 기록하기 위해 작성된 README입니다.    
 upstream repository는 [이곳](https://github.com/dnd-side-project/dnd-6th-5-android)을 참고해주세요😊      
   
