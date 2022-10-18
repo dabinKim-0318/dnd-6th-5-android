@@ -272,29 +272,6 @@ DND를 하면서 저보다 실력있고 경험이 많은 팀원분과 함께 프
    <summary> Click 🙋‍♀️</summary>
 <br />
 
-
-## ✔ NestedScrollView로 감싼 RecyclerView의 ViewHolder 재활용 문제 해결
-
-- NestedScrollView에 RecyclerView를 중첩해서 사용할 경우  ViewHolder가 전혀 재활용되지 않는다는 것을 알게 되었고, 
-[해당 문제의 원인과 해결 방법에대해 고민](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EA%B3%B5%EC%8B%9D%EB%AC%B8%EC%84%9C-%ED%8C%8C%ED%97%A4%EC%B9%98%EA%B8%B0-ScrollView-NestedScrollView%EC%9D%98-%EB%AA%A8%EB%93%A0-%EA%B2%83)하였습니다. 
-- 처음엔 ViewType을 나눠 ViewHolder를 여러개 사용하려 했지만, 상단 Layout이 다른 화면에도 계속 재사용되기 때문에 재사용성이 좋고 객체지향 원칙에 맞게 한 클래스가 하나의 역할을 할 수 있는 `ConcatAdapter`로 구현했습니다. 
-- PolicyMenuAdapter는 item의 data가 변경되지 않기때문에 ListAdapter가 아닌 RecyclerView.Adapter를 사용하여 Adapter를 혼용할 수 있는 ConcatAdapter의 장점을 최대한 활용하기 위해 노력했습니다.
-```kotlin
-        with(binding) {
-            concatAdapter = ConcatAdapter(policyMenuAdapter, policyListAdapter)
-            rvPolicylist.adapter = concatAdapter
-            rvPolicylist.layoutManager = LinearLayoutManager(this@PolicyListActivity)
-        }
-```
-
-| 개선 전 | 개선 후 | 
-|--------|--------------|
-| <img src="https://user-images.githubusercontent.com/84564695/183429903-7d5be5eb-f32b-4dce-9e79-ef5cc544d412.gif" width="200" height="380"/> |  <img src="https://user-images.githubusercontent.com/84564695/183429926-58c485b6-ac0a-4c85-b7a6-e159a24612c4.gif" width="200" height="380"/>
-
-- RecyclerView의 ViewHolder가 재활용되어 item 로딩 속도가 매우 빨라짐을 확인할 수 있었습니다.  
-
-  <br/><br/>  
-
 ## ✔ Log를 Timber라이브러리로 변경 
 - Release 상태에서 Log를 출력하고 싶지 않아 방법을 찾던 중,  Android의 Log 클래스 위에 구축된 로깅 유틸리티 클래스인 Timber 라이브러리를 알게되어 리팩토링하며 적용했습니다
 
