@@ -288,6 +288,60 @@ DND를 하면서 저보다 실력있고 경험이 많은 팀원분과 함께 프
    <summary> Click 🙋‍♀️</summary>
 <br />
 
+
+## ✔ RecycledPool 공유를 통한 성능 최적화
+- 여러 RecyclerView들이 동일한 ViewHolder를 사용하고 있었기 때문에(ViewType이 같은) Pool을 공유해서 ViewHolder를 함께 재사용하여 불필요한 ViewHolder생성을 줄이고 성능을 최적화했습니다.
+
+- RecyclerView의 내부 class인 RecycledViewPool의 객체를 생성하여 RecyclerView들이 공유할 수 있는 pool을 생성한 후 RecyclerView가 가진 메서드인 setRecycledViewPool()의 파라미터로 생성했던 RecycledViewPool객체를 전달했습니다.
+
+```kotlin
+//SearchInputActivity
+class SearchInputActivity :
+    BaseViewUtil.BaseAppCompatActivity<ActivitySearchInputBinding>(R.layout.activity_search_input) {
+       ...
+  fun getPool():RecyclerView.RecycledViewPool{
+        return sharedPool
+    }
+    ...
+  }
+    
+    
+//SearchInputResultFragment
+class SearchInputResultFragment :
+    BaseViewUtil.BaseFragment<FragmentSearchInputResultBinding>(R.layout.fragment_search_input_result) {
+      ...
+    private fun initRvAdapter() {
+        communityPostAdapter = PostAdapter {
+            startActivity(Intent(requireContext(), CommunityPostActivity::class.java).apply {
+                putExtra(CommunityFragment.POST_PK, it.id)
+            })
+        }
+        with(binding) {
+            rvSearchInputResult.adapter = communityPostAdapter
+            rvSearchInputResult.layoutManager = LinearLayoutManager(requireContext())
+            val activity = requireActivity() as SearchInputActivity
+            rvSearchInputResult.setRecycledViewPool(activity.getPool())
+        }
+    }
+```
+![image (1)](https://user-images.githubusercontent.com/84564695/201341798-06ca859e-9815-4a3a-b803-c5db5e8bbc2b.jpg)
+
+
+- bind될 때마다 pool의 참조값을 로그로 확인해봤더니, 두 adapter가 같은 Pool을 사용하고 있음을 알 수 있었습니다.
+- 자세한 내용은 [포스팅](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-RecyclerView-%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0)을 참고해주세요!
+<br/>  
+
+**👉RecyclerView를 잘 사용하기 위해 공부하며 정리한 내용입니다!**
+| RecyclerView 파헤치기 |
+| ------ |
+| [RecyclerView - 1편(구조, 탄생배경)](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CRecycle-View) | 
+| [RecyclerView - 2편(ViewHolder수명주기)](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EA%B3%B5%EC%8B%9D%EB%AC%B8%EC%84%9C-%ED%8C%8C%ED%97%A4%EC%B9%98%EA%B8%B0-RecyclerView%EC%9D%98-%EB%AA%A8%EB%93%A0-%EA%B2%83-2%ED%83%84ViewHolder%EC%88%98%EB%AA%85%EC%A3%BC%EA%B8%B0)  |
+| [RecyclerView - 3편(RecyclerdViewPool)](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-RecyclerView-%EC%84%B1%EB%8A%A5-%EA%B0%9C%EC%84%A0) | 
+| [RecyclerView- 4편(notifyDataSetChanged의 문제점)](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-%EA%B3%B5%EC%8B%9D%EB%AC%B8%EC%84%9C-%ED%8C%8C%ED%97%A4%EC%B9%98%EA%B8%B0-RecyclerView%EC%9D%98-%EB%AA%A8%EB%93%A0-%EA%B2%83-4%ED%8E%B8notifyDataSetChanged%EC%9D%98-%EB%AC%B8%EC%A0%9C%EC%A0%90)  |
+
+
+  <br/><br/>  
+
 ## ✔ Fragment 기본 생성자 사용
 
 - 안드로이드에 의해서 프래그먼트가 복원될 때는 프래그먼트의 기본 생성자를 호출하기 때문에 오버로딩된 생성자의 호출이 보장되지 않는것을 예방하기 위해
@@ -313,25 +367,6 @@ DND를 하면서 저보다 실력있고 경험이 많은 팀원분과 함께 프
 
   <br/><br/>  
 
-## ✔ Log를 Timber라이브러리로 변경 
-- Release 상태에서 Log를 출력하고 싶지 않아 방법을 찾던 중,  Android의 Log 클래스 위에 구축된 로깅 유틸리티 클래스인 Timber 라이브러리를 알게되어 리팩토링하며 적용했습니다
-
-```kotlin
-private fun checkedSwitch() {
-        with(binding) {
-            ctl1.setOnClickListener {
-                Log.e("checkedSwitch","모두 동의하기 클릭")
-            Timber.d("checkedSwitch","모두 동의하기 클릭")
-                cbSignupTermsConditionAllAgree.isChecked = !cbSignupTermsConditionAllAgree.isChecked
-                if (cbSignupTermsConditionAllAgree.isChecked) {
-                    setAllChecked()
-                }
-            }
-         }
-        ...
-  }
-```
-  <br/><br/>  
 
 ## ✔  RecyclerView ViewHolder inner class 변경
 ```kotlin
