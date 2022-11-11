@@ -288,6 +288,31 @@ DND를 하면서 저보다 실력있고 경험이 많은 팀원분과 함께 프
    <summary> Click 🙋‍♀️</summary>
 <br />
 
+## ✔ Fragment 기본 생성자 사용
+
+- 안드로이드에 의해서 프래그먼트가 복원될 때는 프래그먼트의 기본 생성자를 호출하기 때문에 오버로딩된 생성자의 호출이 보장되지 않는것을 예방하기 위해
+생성자를 오버로딩하지 않고 생성 시 파라미터를 Bundle에 담아 setArgument() 함수를 호출하는 방식을 사용했습니다
+
+```kotlin
+
+  //showUserBottomDialog
+  private fun showUserBottomDialog(commentPk: Int) {
+            val bottomDialogReportUser = BottomDialogReport().apply {
+                arguments = bundleOf(CommunityPostActivity.REPORT_COMMENT_PK to commentPk)
+            }
+            ...
+        }
+        
+  //BottomDialogReport
+  class BottomDialogReport :
+    BaseViewUtil.BaseCategoryBottomDialogFragment<FragmentBottomDialogReportUserBinding>(R.layout.fragment_bottom_dialog_report_user) {
+      ...
+    }
+
+```
+
+  <br/><br/>  
+
 ## ✔ Log를 Timber라이브러리로 변경 
 - Release 상태에서 Log를 출력하고 싶지 않아 방법을 찾던 중,  Android의 Log 클래스 위에 구축된 로깅 유틸리티 클래스인 Timber 라이브러리를 알게되어 리팩토링하며 적용했습니다
 
