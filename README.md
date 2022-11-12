@@ -252,6 +252,13 @@ https://user-images.githubusercontent.com/84564695/184608951-3c1b241b-7309-47f0-
 <br />
 
 ### ◼ 사용자 관점에서 코드 작성하기
+```
+//BottomDialogMyPageFragment
+    private fun setHandler() {
+        val handler = Handler(Looper.getMainLooper())
+        handler.postDelayed({ dialog?.dismiss() }, 140)
+    }
+```
 개발을 하면서 단순히 기능구현에만 목적을 두고 코드를 작성하기 보다 '내가 사용자라면 이부분이 불편하지 않을까?', '여기를 개선하면 조금 더 편리하게 사용할 수 있지 않을까?'같은 생각을 하면서 개발에 임했습니다. 아이템을 정렬하는 BottomSheetDialog에서 항목 선택을 마친 후 X를 누를 때 딜레이되는 순간이 없어서 마지막에 어떤 항목을 선택했는 지 확인하기 힘들었습니다. 그래서 BottomSheetDialog가 dismiss될 때 약간의 딜레이가 되는 기능을 추가하는 등 사소한 부분이라도 사용자 관점에서 고민하며 더 나은 방법을 고민했습니다.
 
 <br />
