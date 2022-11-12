@@ -252,6 +252,11 @@ https://user-images.githubusercontent.com/84564695/184608951-3c1b241b-7309-47f0-
 <br />
 
 ### ◼ 사용자 관점에서 코드 작성하기
+
+ <img width="300" src = "https://user-images.githubusercontent.com/84564695/201474918-979a624b-deb3-4035-91bd-c97d0c53b01e.png" />
+
+
+
 ```
 //BottomDialogMyPageFragment
     private fun setHandler() {
@@ -275,6 +280,10 @@ https://user-images.githubusercontent.com/84564695/184608951-3c1b241b-7309-47f0-
 
 ## ✔ 개인적인 성장
 ### ◼ 기획 경험
+ 
+  <img width="700" src = "https://user-images.githubusercontent.com/84564695/201475079-27aeed79-2a14-4732-9233-e68f8b7c164f.png" />
+<img width="300" src = "https://user-images.githubusercontent.com/84564695/201475153-31e22f3f-b0e9-4796-bb57-4418d6c3e6d0.png" />
+
 DND는 프론트, 백엔드, 디자이너 포지션으로 이루어져있기 때문에 PM없이 하나의 서비스를 만들어야했습니다.
 개발자와 디자이너 모두 기획에 참여하기 때문에 기획단계에서 저절로 기능구현의 난도와, 기간 내에 구현할 수 있는지와 같은 가능성을 고려하며 프로젝트에 임했습니다. 이전에는 어느정도 완성된 와이어프레임, IA를 보면서 더 '나은' 기획 방향을 고민하는 철저한 개발자 포지션이었다면, 이번 프로젝트에서는 아이디어 도출 즉, 맨바닥부터 '함께' 기획해야했기 때문에 기획, UI&UX에 대한 지식이 필요하다고 생각했습니다. 개발만 했다면 몰랐을 '사용자 편의성', '유저이탈을 방지하는 디자인' 등을 고민하게 되면서 UI&UX에 대한 공부욕심이 생겨 틈틈히 개인공부를 진행했습니다. 기획자의 눈으로 프로젝트를 바라볼 수 있는 눈이 생긴 것 같은 느낌이었고, 개발자도 유저 플로우를 함께 고민하며 더 좋은 사용자 경험을 제공하기 위해 노력해야겠다고 생각했습니다.
 
@@ -286,11 +295,12 @@ DND를 하면서 저보다 실력있고 경험이 많은 팀원분과 함께 프
 
 ## 👉프로젝트 이후 공부한 내용
 앞서 "기술적인 부분"에서 아쉬웠던 내용을 프로젝트가 끝난 이후에 공부하고 포스팅했습니다.
-| Problem | Blog Link |
-| ------ | ------ |
-| 안드로이드 권장 아키텍쳐 | [https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-94xy7yo3] |
-| RecyclerView 중첩 스크롤  | [https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CRecycle-View] |
-
+| Problem |
+| ------ | 
+| [안드로이드 권장 아키텍쳐](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C-94xy7yo3) |
+| [RecyclerView 중첩 스크롤](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CRecycle-View) |
+| [Fragment 1편 - 사용이유/장점](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9C%ED%94%84%EB%9E%98%EA%B7%B8%EB%A8%BC%ED%8A%B81) |
+| [Fragment 2편 - FramgmentTransaction](https://velog.io/@dabin/%EC%95%88%EB%93%9C%EB%A1%9C%EC%9D%B4%EB%93%9CFragment-2%ED%8E%B8FragmentR) |
 
 </details>
 
@@ -310,34 +320,42 @@ DND를 하면서 저보다 실력있고 경험이 많은 팀원분과 함께 프
 - RecyclerView의 내부 class인 RecycledViewPool의 객체를 생성하여 RecyclerView들이 공유할 수 있는 pool을 생성한 후 RecyclerView가 가진 메서드인 setRecycledViewPool()의 파라미터로 생성했던 RecycledViewPool객체를 전달했습니다.
 
 ```kotlin
-//SearchInputActivity
-class SearchInputActivity :
-    BaseViewUtil.BaseAppCompatActivity<ActivitySearchInputBinding>(R.layout.activity_search_input) {
-       ...
-  fun getPool():RecyclerView.RecycledViewPool{
-        return sharedPool
+//MainAdapter
+class MainAdapter(
+    private val context: Context,
+    private val homeViewModel: HomeViewModel,
+    private val viewLifecycleOwner: LifecycleOwner,
+    private val clickListener: (ResponseUserLikePolicyData.Data.Policy) -> Unit
+) :
+    ListAdapter<ResponseUserLikePolicyData.Data.Policy, RecyclerView.ViewHolder>(
+        SimpleDiffUtil()
+    ) {
+
+    private val viewPool: RecyclerView.RecycledViewPool = RecyclerView.RecycledViewPool()
+ 
+ ...
+ 
+ class LikeViewHolder(
+     ...
+) : RecyclerView.ViewHolder(
+    itemView.root
+) {
+    private val subRv = itemView.subRv
+    private val adapter = MyLikePolicyAdapter(clickListener)
+
+    init {
+        subRv.adapter = adapter
+        val layoutManager = LinearLayoutManager(context)
+        layoutManager.recycleChildrenOnDetach = true
+        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
+        subRv.layoutManager = layoutManager
+        subRv.setRecycledViewPool(viewPool)
+        homeViewModel.myLikePolicyList.observe(viewLifecycleOwner) { myLikePolicyList ->
+            adapter.submitList(myLikePolicyList)
+        }
     }
+}
     ...
-  }
-    
-    
-//SearchInputResultFragment
-class SearchInputResultFragment :
-    BaseViewUtil.BaseFragment<FragmentSearchInputResultBinding>(R.layout.fragment_search_input_result) {
-      ...
-    private fun initRvAdapter() {
-        communityPostAdapter = PostAdapter {
-            startActivity(Intent(requireContext(), CommunityPostActivity::class.java).apply {
-                putExtra(CommunityFragment.POST_PK, it.id)
-            })
-        }
-        with(binding) {
-            rvSearchInputResult.adapter = communityPostAdapter
-            rvSearchInputResult.layoutManager = LinearLayoutManager(requireContext())
-            val activity = requireActivity() as SearchInputActivity
-            rvSearchInputResult.setRecycledViewPool(activity.getPool())
-        }
-    }
 ```
 ![image (1)](https://user-images.githubusercontent.com/84564695/201341798-06ca859e-9815-4a3a-b803-c5db5e8bbc2b.jpg)
 
