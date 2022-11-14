@@ -280,7 +280,7 @@ https://user-images.githubusercontent.com/84564695/184608951-3c1b241b-7309-47f0-
 ## ✔ 개인적인 성장
 ### ◼ 기획 경험
  
-  <img width="700" src = "https://user-images.githubusercontent.com/84564695/201475079-27aeed79-2a14-4732-9233-e68f8b7c164f.png" />
+  <img width="600" src = "https://user-images.githubusercontent.com/84564695/201475079-27aeed79-2a14-4732-9233-e68f8b7c164f.png" />
 <img width="300" src = "https://user-images.githubusercontent.com/84564695/201475153-31e22f3f-b0e9-4796-bb57-4418d6c3e6d0.png" />
 
 DND는 프론트, 백엔드, 디자이너 포지션으로 이루어져있기 때문에 PM없이 하나의 서비스를 만들어야했습니다.
