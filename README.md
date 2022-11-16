@@ -374,31 +374,6 @@ class MainAdapter(
 
   <br/><br/>  
 
-## ✔ Fragment 기본 생성자 사용
-
-- 안드로이드에 의해서 프래그먼트가 복원될 때는 프래그먼트의 기본 생성자를 호출하기 때문에 오버로딩된 생성자의 호출이 보장되지 않는것을 예방하기 위해
-생성자를 오버로딩하지 않고 생성 시 파라미터를 Bundle에 담아 setArgument() 함수를 호출하는 방식을 사용했습니다
-
-```kotlin
-
-  //showUserBottomDialog
-  private fun showUserBottomDialog(commentPk: Int) {
-            val bottomDialogReportUser = BottomDialogReport().apply {
-                arguments = bundleOf(CommunityPostActivity.REPORT_COMMENT_PK to commentPk)
-            }
-            ...
-        }
-        
-  //BottomDialogReport
-  class BottomDialogReport :
-    BaseViewUtil.BaseCategoryBottomDialogFragment<FragmentBottomDialogReportUserBinding>(R.layout.fragment_bottom_dialog_report_user) {
-      ...
-    }
-
-```
-
-  <br/><br/>  
-
 
 ## ✔  RecyclerView ViewHolder inner class 변경
 ```kotlin
@@ -524,6 +499,7 @@ private fun initClick() {
 - 외부에서 `start(context: Context, category: String)` 메서드를 여러번 호출해야 하고 인스턴스 생성 없이 사용하기 위해 companion oboject 블럭 안에서 사용했습니다.
 - start라는 메서드 네이밍을 통해 클릭 이벤트 발생 시 PolicyListActivity로 이동된다는 것을 직관적으로 알 수 있도록 코드를 작성했습니다.
   <br/><br/>  
+ 
 ## ✔  inflater 중복 생성 방지
 ```kotlin
    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyLikePolicyAdapter.MyLikePolicyHomeViewHolder {
@@ -534,22 +510,6 @@ private fun initClick() {
 
 ```
 - RecyclerView를 사용하던 중 ViewHolder가 Create될 때 마다 inflater가 매번 생성되는 것을 개선할 수 있겠다고 생각했습니다
-
-```kotlin
- private lateinit var inflater: LayoutInflater //전역 변수로 선언
-
-   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyLikePolicyAdapter.MyLikePolicyHomeViewHolder {
-          if (!::inflater.isInitialized) //변수를 객체로 엑세스하여 객체에 대한 속성 참조
-            inflater = LayoutInflater.from(parent.context)
-            
-        val binding = ItemInterastedPolicyBinding.inflate(inflater, parent, false)
-      
-        return MyLikePolicyHomeViewHolder(binding)
-    }
-
-```
-- 코틀린 표준 라이브러리에서 제공하는 함수인 isInitialized을 사용해 지연 초기화 속성이 초기화되었는지 검사했습니다.
-- inflater의 할당 여부를 확인하고, 중복 생성을 방지했습니다.
 
   <br/><br/>  
 
