@@ -500,16 +500,6 @@ private fun initClick() {
 - start라는 메서드 네이밍을 통해 클릭 이벤트 발생 시 PolicyListActivity로 이동된다는 것을 직관적으로 알 수 있도록 코드를 작성했습니다.
   <br/><br/>  
  
-## ✔  inflater 중복 생성 방지
-```kotlin
-   override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyLikePolicyAdapter.MyLikePolicyHomeViewHolder {
-        val binding = ItemInterastedPolicyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-      
-        return MyLikePolicyHomeViewHolder(binding)
-    }
-
-```
-- RecyclerView를 사용하던 중 ViewHolder가 Create될 때 마다 inflater가 매번 생성되는 것을 개선할 수 있겠다고 생각했습니다
 
   <br/><br/>  
 
